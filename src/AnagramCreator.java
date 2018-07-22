@@ -9,19 +9,22 @@ import java.util.Iterator;
 
 class AnagramCreator {
 
-    HashMap<String, String> map = new HashMap<String, String>();
+    HashMap<String, String> map;
 
-    void hash() throws IOException {
-        File file = new File("/home/sangeetagupta1998/Desktop/words.txt");
+    AnagramCreator() throws IOException {
+
+        map = new HashMap<String, String>();
+
+        File file = new File("/home/sangeetagupta1998/Downloads/Anagrams/assets/words.txt");
         BufferedReader reader = new BufferedReader(new FileReader(file));
 
-
         String line, temporaryValue;
+        String key;
+        int count = 0;
 
         map.put("", "");
 
-        String key;
-        int count = 0;
+
 
         while ((line = reader.readLine()) != null) {
 
@@ -85,13 +88,17 @@ class AnagramCreator {
 
 
     public static void main(String... args) {
-        AnagramCreator anagramCreator = new AnagramCreator();
-        try {
-            anagramCreator.hash();
+        try{
+
+            AnagramCreator anagramCreator = new AnagramCreator();
+
             anagramCreator.filterAnagram();
             anagramCreator.displayAnagram();
+
         } catch (Exception exception) {
+
             exception.printStackTrace();
+
         }
     }
 
